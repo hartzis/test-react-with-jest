@@ -4,7 +4,7 @@
 
 var React = require('react/addons');
 
-var TodoList = require('./TodoList');
+var TodoList = require('./TodoList.react');
 
 var TodoApp = React.createClass({
   getInitialState: function() {
