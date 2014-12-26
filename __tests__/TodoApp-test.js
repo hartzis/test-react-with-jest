@@ -21,17 +21,24 @@ describe('TodoApp', function() {
     expect(TestUtils.isDOMComponent( appDOMComponent )).toBe(true);
   });
     
-  it('adds an item to the todo list', function() {
+  it('should add an item to the todo list', function() {
 
-    var input = TestUtils.findRenderedDOMComponentWithClass(
+    var inputBox = TestUtils.findRenderedDOMComponentWithClass(
       renderedTodoApp, 'todoInput');
-    input.getDOMNode().value = 'take dog out';
+    inputBox.getDOMNode().value = 'take dog out';
 
-    expect(input.getDOMNode().value).toEqual('take dog out');
+    TestUtils.Simulate.change(inputBox);
 
-    // var button = TestUtils.findRenderedDOMComponentWithClass(
-    //   renderedTodoApp, 'submitTodo');
-    // TestUtils.Simulate.click(button.getDOMNode());
+    expect(inputBox.getDOMNode().value).toEqual('take dog out');
+
+    var todoForm = TestUtils.findRenderedDOMComponentWithClass(
+      renderedTodoApp, 'todoForm');
+    TestUtils.Simulate.submit(todoForm);
+
+    var submitTodo = TestUtils.findRenderedDOMComponentWithClass(
+      renderedTodoApp, 'submitTodo');
+
+    expect(submitTodo.getDOMNode().textContent).toEqual('Add #2');
 
     // var theTodoList = TestUtils.findRenderedDOMComponentWithClass(
     //   renderedTodoApp, 'theTodoList');
