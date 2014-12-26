@@ -1,11 +1,11 @@
-var TodoList = React.createClass({
-  render: function() {
-    var createItem = function(itemText) {
-      return <li>{itemText}</li>;
-    };
-    return <ul>{this.props.items.map(createItem)}</ul>;
-  }
-});
+/** @jsx React.DOM */
+
+// TodoApp.js
+
+var React = require('react/addons');
+
+var TodoList = require('./TodoList');
+
 var TodoApp = React.createClass({
   getInitialState: function() {
     return {items: [], text: ''};
@@ -33,7 +33,4 @@ var TodoApp = React.createClass({
   }
 });
 
-module.exports = {
-  TodoList: TodoList,
-  TodoApp: TodoApp
-  };
+module.exports = TodoApp;
