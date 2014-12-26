@@ -2,13 +2,13 @@
 
 // __tests__/TodoApp-test.js
 
-jest.dontMock('../TodoApp.react');
+jest.dontMock('../../TodoApp/TodoApp.react');
 // have to tell jest not to mock the TodoList that gets required from within TodoApp
-jest.dontMock('../TodoList.react');
+jest.dontMock('../../TodoApp/TodoList.react');
 describe('TodoApp', function() {
 
   var React = require('react/addons');
-  var TodoApp = require('../TodoApp.react');
+  var TodoApp = require('../../TodoApp/TodoApp.react');
   var TestUtils = React.addons.TestUtils;
 
   var renderedTodoApp = TestUtils.renderIntoDocument(
